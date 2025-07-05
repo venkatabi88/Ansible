@@ -1,0 +1,13 @@
+---
+- name: Create test user
+  hosts: all
+  become: yes  # escalate privileges to create user
+  tasks:
+    - name: Create a test user
+      user:
+        name: test
+        comment: "Test User Account"
+        shell: /bin/bash
+        state: present
+        create_home: yes
+
